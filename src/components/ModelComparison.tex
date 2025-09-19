@@ -1,0 +1,53 @@
+import React, { useState } from 'react';
+import { ModelMetrics } from './models/ModelMetrics';
+import { ModelComparator } from './models/ModelComparator';
+import { BiasAnalysis } from './models/BiasAnalysis';
+
+export function ModelComparison() {
+  const [activeSection, setActiveSection] = useState<'metrics' | 'comparison' | 'bias'>('metrics');
+
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-gray-900">Model Analysis & Comparison</h1>
+      </div>
+
+      <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
+        <button
+          onClick={() => setActiveSection('metrics')}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            activeSection === 'metrics'
+              ? 'bg-white text-gray-900 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          Performance Metrics
+        </button>
+        <button
+          onClick={() => setActiveSection('comparison')}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            activeSection === 'comparison'
+              ? 'bg-white text-gray-900 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          Model Comparison
+        </button>
+        <button
+          onClick={() => setActiveSection('bias')}
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
+            activeSection === 'bias'
+              ? 'bg-white text-gray-900 shadow-sm'
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          Bias Analysis
+        </button>
+      </div>
+
+      {activeSection === 'metrics' && <ModelMetrics />}
+      {activeSection === 'comparison' && <ModelComparator />}
+      {activeSection === 'bias' && <BiasAnalysis />}
+    </div>
+  );
+}

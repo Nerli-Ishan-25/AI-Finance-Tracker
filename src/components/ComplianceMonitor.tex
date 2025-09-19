@@ -1,0 +1,24 @@
+import React from 'react';
+import { RegulatoryOverview } from './compliance/RegulatoryOverview';
+import { AuditTrail } from './compliance/AuditTrail';
+import { DataGovernance } from './compliance/DataGovernance';
+
+export function ComplianceMonitor() {
+  return (
+    <div className="space-y-6">
+      <div className="flex items-center justify-between">
+        <h1 className="text-3xl font-bold text-gray-900">Regulatory Compliance Monitor</h1>
+        <div className="text-sm text-gray-500">
+          Last compliance check: {new Date().toLocaleString()}
+        </div>
+      </div>
+
+      <RegulatoryOverview />
+      
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <AuditTrail />
+        <DataGovernance />
+      </div>
+    </div>
+  );
+}

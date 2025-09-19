@@ -1,0 +1,70 @@
+Gaps and opportunities
+UI components
+Charts for trends (time-series risk score, applications/day, model drift)
+Filters on lists (date range, model, segment) with multi-select chips
+Sort/search on Recent Risk Assessments and Audit Trail
+Empty/zero-state designs and skeleton loaders
+Toasts/snackbars for actions (submit, errors)
+Modal/drawer for assessment details
+Pagination or infinite scroll on long lists
+Download/Export (CSV/PDF) for reports and logs
+Dark mode theme toggle
+Loan Assessment form
+Client-side validation (required, ranges, masks)
+Inline error messages and success state
+Derived metrics preview (DTI, LTV) with live calc
+Submit flow with loading state and disabled controls
+Form reset, persistence (localStorage) and autosave
+Accessibility for inputs (labels, aria-live for errors)
+Model Analysis
+Real charts for precision/recall/F1 over time
+Confusion matrix, ROC/PR curves
+Model version selector and “active/rollback” controls
+Feature importance and drift monitoring widgets
+Bias analysis with group breakdowns (with proper disclaimers)
+Compliance Monitor
+Click-through details per regulation (accordion or modal)
+Status trend (sparkline) and “last updated by”
+Filters (regulation, severity, date)
+Export compliance summary; printable view
+Navigation/state
+URL routing with deep links (react-router) and shareable tabs
+Persist active tab in URL and on refresh
+Global state (e.g., Zustand/Redux) for shared filters and user prefs
+Data layer
+API integration (mock service first, then real endpoints)
+Error handling, retries, and offline-friendly caching (React Query)
+Environment config for API base URLs
+Type-safe DTOs and adapters to view models
+Performance
+Code-splitting per tab, route-level lazy loading
+Image/icon optimization, preloading key assets
+Memoization to avoid re-renders on large lists
+Virtualization for long tables/logs
+Accessibility
+Keyboard navigation for tabs/forms
+Focus management after actions
+High-contrast mode and color contrast audits
+ARIA roles and labels on interactive elements
+Testing/quality
+Unit tests (components, helpers)
+Integration tests for forms and tab routing
+Visual regression tests for dashboards
+Lint/format precommit hooks; type-check CI
+Security/compliance
+Content Security Policy in index.html
+Input sanitization and safe number parsing
+Redaction of PII in logs/demos
+Permissions/roles scaffolding (even if mocked)
+Observability
+Basic analytics (page views, events)
+Error boundary with reporting
+Feature flags for experimental modules
+Documentation
+README with scripts, env setup, and design notes
+Component storybook or catalog for UI consistency
+Contribution guide and coding standards
+Visual polish
+Consistent iconography set (e.g., Lucide already installed; expand usage)
+Spacing/typography scale pass for consistency
+Theming tokens (colors, radius, shadows) for easy brand tweaks

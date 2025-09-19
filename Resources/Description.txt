@@ -1,0 +1,90 @@
+FinRisk AI – Financial Risk Analysis Dashboard
+
+1) What this project is
+FinRisk AI is a modern, demo‑friendly front‑end application for loan risk assessment, model analysis, and regulatory compliance monitoring. It provides a clean, fast UI built with Vite, React 18, TypeScript, and Tailwind CSS to help teams explore credit risk workflows without requiring a backend.
+
+2) Purpose and goals
+- Provide a realistic, interactive dashboard for risk and compliance stakeholders to evaluate credit risk scenarios, review model performance, and track governance.
+- Serve as a reference UI for teams prototyping risk products or teaching financial risk concepts.
+- Offer an extensible foundation that can be wired to real APIs later, starting with rich mock/demo data.
+
+3) What it does (high‑level capabilities)
+- Risk Dashboard: Summarizes key KPIs, recent assessments, and model performance insights in one place.
+- Loan Assessment: Guides users through a multi‑section form to collect inputs for credit risk assessment.
+- Model Analysis & Comparison: Presents per‑model metrics and visualizes training/prediction times for side‑by‑side evaluation.
+- Compliance Monitor: Surfaces regulation cards, status overviews, audit trails, and data governance highlights.
+
+4) Key features
+- TypeScript‑first React app with fast developer experience via Vite (HMR).
+- Tailwind CSS for utility‑first, responsive UI and rapid iteration.
+- Clean, modular component architecture designed for readability and reuse.
+- Demo datasets for dashboards, model metrics, and compliance artifacts.
+- Inline SVG favicon and minimal, portable setup across Windows/macOS/Linux.
+- Ready to evolve: mock‑first approach that can be replaced by real API calls.
+
+5) Who it helps
+- Risk analysts and underwriters: Explore loan risk inputs and see summary KPIs.
+- Data scientists and MLOps: Compare model metrics, latency, and performance at a glance.
+- Compliance and governance teams: Track status, review audit signals, and highlight policy adherence.
+- Product managers and educators: Demonstrate end‑to‑end risk flows in a friendly UI for demos and training.
+
+6) Problems it solves
+- Fragmented tooling: Brings KPIs, assessments, models, and compliance into a single, coherent interface.
+- Slow prototyping: Lets teams validate workflows quickly using mock data before wiring real services.
+- Communication gaps: Provides an understandable, sharable UI for cross‑functional discussions.
+- Early compliance visibility: Surfaces governance items alongside modeling and assessment to avoid late surprises.
+
+7) Typical use cases
+- Demo a credit risk evaluation journey end‑to‑end to stakeholders.
+- Compare two or more model variants and explain their trade‑offs.
+- Review recent assessments, track KPI movements, and spot anomalies.
+- Teach fundamentals of risk dashboards, inputs collection, and oversight.
+
+8) How users benefit
+- Faster discovery: Quickly understand performance, data inputs, and governance posture.
+- Better decisions: Consolidated information reduces context‑switching and miscommunication.
+- Reduced setup time: No backend required for demos; can be extended to real APIs when ready.
+- Consistent UX: Opinionated, accessible, and responsive design out of the box.
+
+9) Tech stack
+- React 18 + TypeScript
+- Vite (dev server and build tooling)
+- Tailwind CSS 3
+- ESLint 9 (flat config)
+
+10) Architecture and extensibility
+- Pages/components: Navigation with tabs routes to four primary experiences (Dashboard, Loan Assessment, Model Comparison, Compliance Monitor).
+- State: Local to page components for simplicity; easy to migrate to data‑fetching hooks or React Query.
+- Data: Mock/demo values by default; replace with API client calls when integrating a backend.
+- Adapters: Map API DTOs to view models for type safety and consistent rendering.
+
+11) Data & API integration approach
+- Start with a mocks folder and a lightweight service to mimic latency.
+- Introduce an API client (e.g., src/lib/api.ts) using fetch or a preferred library.
+- Handle loading, error states, and caching; add skeletons and toasts as needed.
+- Manage configuration via Vite environment variables (e.g., VITE_API_BASE_URL).
+
+12) Accessibility, performance, and security notes
+- Accessibility: Semantic headings, labeled inputs, keyboard navigation. Add ARIA roles for advanced widgets as needed.
+- Performance: Vite builds are optimized; consider code‑splitting via React.lazy for larger apps.
+- Security: Avoid unsanitized HTML, redact PII from logs, and consider a strict Content Security Policy in production.
+
+13) Limitations
+- No backend or persistence included; all data is in‑memory for demos.
+- Not a turnkey production risk system; intended as a starting point/reference UI.
+
+14) Future enhancements
+- Connect to real scoring and model‑metrics APIs.
+- Add authentication/authorization and role‑based views.
+- Introduce charts, exports, and richer audit trails.
+- Add routing with URLs (e.g., react‑router) and deep‑links to entities.
+- Expand tests (Vitest + React Testing Library) and visual regression coverage.
+
+15) Getting started (short)
+- Requirements: Node ≥ 18, npm ≥ 9.
+- Install: npm ci
+- Run dev: npm run dev then open the printed URL (typically http://localhost:5173).
+- Build/preview: npm run build then npm run preview.
+
+16) Summary
+FinRisk AI centralizes risk KPIs, loan assessment, model comparison, and compliance monitoring into a single, approachable web interface. It accelerates prototyping, improves cross‑team communication, and offers a clear path from mock data to real‑world integrations—helping teams make better, faster decisions about financial risk.

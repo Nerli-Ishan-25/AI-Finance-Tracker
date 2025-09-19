@@ -1,0 +1,104 @@
+import React from 'react';
+import { Shield, FileText, Eye, Lock } from 'lucide-react';
+
+export function RegulatoryOverview() {
+  const regulations = [
+    {
+      name: 'Fair Credit Reporting Act (FCRA)',
+      status: 'compliant',
+      score: 98.2,
+      icon: FileText,
+      requirements: [
+        'Adverse action notices sent within 30 days',
+        'Credit report accuracy maintained',
+        'Consumer dispute resolution process active',
+      ],
+    },
+    {
+      name: 'Equal Credit Opportunity Act (ECOA)',
+      status: 'compliant',
+      score: 96.8,
+      icon: Shield,
+      requirements: [
+        'No discrimination based on protected classes',
+        'Adverse action reasons provided',
+        'Bias monitoring systems operational',
+      ],
+    },
+    {
+      name: 'General Data Protection Regulation (GDPR)',
+      status: 'compliant',
+      score: 94.5,
+      icon: Lock,
+      requirements: [
+        'Right to explanation implemented',
+        'Data minimization principles followed',
+        'Consent management system active',
+      ],
+    },
+    {
+      name: 'Model Risk Management (SR 11-7)',
+      status: 'compliant',
+      score: 97.1,
+      icon: Eye,
+      requirements: [
+        'Model validation framework established',
+        'Independent model review conducted',
+        'Model performance monitoring active',
+      ],
+    },
+  ];
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'compliant':
+        return 'text-green-700 bg-green-100 border-green-200';
+      case 'warning':
+        return 'text-yellow-700 bg-yellow-100 border-yellow-200';
+      case 'non-compliant':
+        return 'text-red-700 bg-red-100 border-red-200';
+      default:
+        return 'text-gray-700 bg-gray-100 border-gray-200';
+    }
+  };
+
+  return (
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {regulations.map((regulation, index) => {
+        const Icon = regulation.icon;
+        
+        return (
+          <div key={index} className="bg-white rounded-lg shadow-sm border">
+            <div className="p-6">
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center space-x-3">
+                  <Icon className="h-6 w-6 text-blue-600" />
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{regulation.name}</h3>
+                    <div className={`inline-block px-3 py-1 text-sm rounded-full border ${getStatusColor(regulation.status)}`}>
+                      {regulation.status === 'compliant' ? 'Compliant' : regulation.status}
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-right">
+                  <div className="text-2xl font-bold text-gray-900">{regulation.score}%</div>
+                  <div className="text-sm text-gray-500">Compliance Score</div>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                {regulation.requirements.map((req, reqIndex) => (
+                  <div key={reqIndex} className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-gray-700">{req}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}

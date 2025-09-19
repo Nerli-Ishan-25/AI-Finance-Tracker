@@ -1,0 +1,95 @@
+import React from 'react';
+import { AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+
+export function RecentAssessments() {
+  const assessments = [
+    {
+      id: 'LA-2024-001',
+      customer: 'John Smith',
+      riskScore: 0.12,
+      status: 'approved',
+      amount: '$45,000',
+      timestamp: '2 min ago',
+    },
+    {
+      id: 'LA-2024-002',
+      customer: 'Sarah Johnson',
+      riskScore: 0.78,
+      status: 'rejected',
+      amount: '$120,000',
+      timestamp: '8 min ago',
+    },
+    {
+      id: 'LA-2024-003',
+      customer: 'Mike Davis',
+      riskScore: 0.45,
+      status: 'review',
+      amount: '$75,000',
+      timestamp: '15 min ago',
+    },
+    {
+      id: 'LA-2024-004',
+      customer: 'Emma Wilson',
+      riskScore: 0.19,
+      status: 'approved',
+      amount: '$32,000',
+      timestamp: '23 min ago',
+    },
+    {
+      id: 'LA-2024-005',
+      customer: 'David Brown',
+      riskScore: 0.89,
+      status: 'rejected',
+      amount: '$95,000',
+      timestamp: '31 min ago',
+    },
+  ];
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'approved':
+        return <CheckCircle className="h-5 w-5 text-green-500" />;
+      case 'rejected':
+        return <XCircle className="h-5 w-5 text-red-500" />;
+      case 'review':
+        return <AlertTriangle className="h-5 w-5 text-yellow-500" />;
+      default:
+        return null;
+    }
+  };
+
+  const getRiskColor = (score: number) => {
+    if (score < 0.3) return 'text-green-600 bg-green-100';
+    if (score < 0.7) return 'text-yellow-600 bg-yellow-100';
+    return 'text-red-600 bg-red-100';
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border">
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Risk Assessments</h3>
+        
+        <div className="space-y-4">
+          {assessments.map((assessment) => (
+            <div key={assessment.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center space-x-4">
+                {getStatusIcon(assessment.status)}
+                <div>
+                  <p className="font-medium text-gray-900">{assessment.customer}</p>
+                  <p className="text-sm text-gray-500">{assessment.id} • {assessment.amount}</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <span className={`px-3 py-1 text-sm font-medium rounded-full ${getRiskColor(assessment.riskScore)}`}>
+                  Risk: {(assessment.riskScore * 100).toFixed(0)}%
+                </span>
+                <span className="text-sm text-gray-500">{assessment.timestamp}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}

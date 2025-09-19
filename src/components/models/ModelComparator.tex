@@ -1,0 +1,108 @@
+import React from 'react';
+
+export function ModelComparator() {
+  const comparisonData = [
+    { metric: 'Accuracy', gb: 94.2, rf: 92.7, lr: 88.9 },
+    { metric: 'Precision', gb: 91.8, rf: 89.3, lr: 86.7 },
+    { metric: 'Recall', gb: 89.5, rf: 91.2, lr: 88.1 },
+    { metric: 'F1-Score', gb: 90.6, rf: 90.2, lr: 87.4 },
+    { metric: 'AUC-ROC', gb: 94.6, rf: 92.8, lr: 89.1 },
+  ];
+
+  const getBestScore = (gb: number, rf: number, lr: number) => {
+    return Math.max(gb, rf, lr);
+  };
+
+  const isHighest = (value: number, gb: number, rf: number, lr: number) => {
+    return value === getBestScore(gb, rf, lr);
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border">
+      <div className="p-6">
+        <h2 className="text-xl font-semibold text-gray-900 mb-6">Model Performance Comparison</h2>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="border-b">
+                <th className="text-left py-3 px-4 font-medium text-gray-900">Metric</th>
+                <th className="text-center py-3 px-4 font-medium text-gray-900">Gradient Boosting</th>
+                <th className="text-center py-3 px-4 font-medium text-gray-900">Random Forest</th>
+                <th className="text-center py-3 px-4 font-medium text-gray-900">Logistic Regression</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonData.map((row, index) => (
+                <tr key={index} className="border-b">
+                  <td className="py-3 px-4 font-medium text-gray-900">{row.metric}</td>
+                  <td className="py-3 px-4 text-center">
+                    <span className={`font-medium ${
+                      isHighest(row.gb, row.gb, row.rf, row.lr) 
+                        ? 'text-green-600 bg-green-100 px-2 py-1 rounded' 
+                        : 'text-gray-900'
+                    }`}>
+                      {row.gb}%
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-center">
+                    <span className={`font-medium ${
+                      isHighest(row.rf, row.gb, row.rf, row.lr) 
+                        ? 'text-green-600 bg-green-100 px-2 py-1 rounded' 
+                        : 'text-gray-900'
+                    }`}>
+                      {row.rf}%
+                    </span>
+                  </td>
+                  <td className="py-3 px-4 text-center">
+                    <span className={`font-medium ${
+                      isHighest(row.lr, row.gb, row.rf, row.lr) 
+                        ? 'text-green-600 bg-green-100 px-2 py-1 rounded' 
+                        : 'text-gray-900'
+                    }`}>
+                      {row.lr}%
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="p-4 border rounded-lg">
+            <h4 className="font-medium text-gray-900 mb-2">Gradient Boosting</h4>
+            <div className="text-sm text-gray-600">
+              <div className="mb-1"><strong>Pros:</strong> Highest accuracy, excellent feature interaction</div>
+              <div><strong>Cons:</strong> Longer training time, prone to overfitting</div>
+            </div>
+          </div>
+          
+          <div className="p-4 border rounded-lg">
+            <h4 className="font-medium text-gray-900 mb-2">Random Forest</h4>
+            <div className="text-sm text-gray-600">
+              <div className="mb-1"><strong>Pros:</strong> Good balance, handles missing data well</div>
+              <div><strong>Cons:</strong> Can overfit, less interpretable</div>
+            </div>
+          </div>
+          
+          <div className="p-4 border rounded-lg">
+            <h4 className="font-medium text-gray-900 mb-2">Logistic Regression</h4>
+            <div className="text-sm text-gray-600">
+              <div className="mb-1"><strong>Pros:</strong> Fast, interpretable, stable baseline</div>
+              <div><strong>Cons:</strong> Lower accuracy, assumes linear relationships</div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+          <h4 className="font-medium text-blue-900 mb-2">Recommendation</h4>
+          <p className="text-sm text-blue-800">
+            Gradient Boosting is recommended for production due to its superior performance metrics. 
+            Random Forest serves as an excellent backup model with balanced performance and reliability.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}

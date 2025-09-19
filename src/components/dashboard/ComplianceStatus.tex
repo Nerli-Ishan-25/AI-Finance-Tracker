@@ -1,0 +1,78 @@
+import React from 'react';
+import { Shield, AlertTriangle, CheckCircle } from 'lucide-react';
+
+export function ComplianceStatus() {
+  const complianceMetrics = [
+    {
+      category: 'Fair Lending Compliance',
+      status: 'passed',
+      score: 98.5,
+      description: 'Model shows no discriminatory bias across protected classes',
+    },
+    {
+      category: 'Model Explainability',
+      status: 'passed',
+      score: 95.2,
+      description: 'All predictions include SHAP explanations meeting regulatory requirements',
+    },
+    {
+      category: 'Data Privacy',
+      status: 'warning',
+      score: 87.3,
+      description: 'Minor data retention policy updates needed for full compliance',
+    },
+    {
+      category: 'Audit Trail',
+      status: 'passed',
+      score: 99.1,
+      description: 'Complete audit logs maintained for all risk assessments',
+    },
+  ];
+
+  const getStatusIcon = (status: string) => {
+    switch (status) {
+      case 'passed':
+        return <CheckCircle className="h-5 w-5 text-green-500" />;
+      case 'warning':
+        return <AlertTriangle className="h-5 w-5 text-yellow-500" />;
+      default:
+        return <Shield className="h-5 w-5 text-red-500" />;
+    }
+  };
+
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'passed':
+        return 'text-green-700 bg-green-100';
+      case 'warning':
+        return 'text-yellow-700 bg-yellow-100';
+      default:
+        return 'text-red-700 bg-red-100';
+    }
+  };
+
+  return (
+    <div className="bg-white rounded-lg shadow-sm border">
+      <div className="p-6">
+        <h3 className="text-lg font-semibold text-gray-900 mb-4">Regulatory Compliance Status</h3>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {complianceMetrics.map((metric, index) => (
+            <div key={index} className="p-4 border rounded-lg">
+              <div className="flex items-center justify-between mb-2">
+                <div className="flex items-center space-x-2">
+                  {getStatusIcon(metric.status)}
+                  <span className="font-medium text-gray-900">{metric.category}</span>
+                </div>
+                <span className={`px-2 py-1 text-xs rounded-full font-medium ${getStatusColor(metric.status)}`}>
+                  {metric.score}%
+                </span>
+              </div>
+              <p className="text-sm text-gray-600">{metric.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
