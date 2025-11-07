@@ -49,6 +49,14 @@
 **Next Step Context:** Run `npm run deploy` to publish latest build to `gh-pages`
 **Ticket/Ref:** GH-PAGES-CONFIG
 
+### 2025-11-07 10:40 — [Infra] [medium]
+**File(s):** `.github/workflows/pages.yml`
+**Change:** Added GitHub Actions workflow to build and deploy Vite app to GitHub Pages
+**Purpose:** Ensure Pages receives compiled assets instead of raw Vite source when publishing from `main`
+**Linked Components:** GitHub Actions; Vite build pipeline; Pages hosting
+**Next Step Context:** Set Pages source to "GitHub Actions" and rerun deployment to publish live site
+**Ticket/Ref:** GH-PAGES-ACTION
+
 ### 2025-11-07 09:45 — [Build] [low]
 **File(s):** `vite.config.ts`
 **Change:** Added inline comment documenting previous `base` setting reference
