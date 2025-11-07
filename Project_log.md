@@ -41,6 +41,22 @@
 
 ---
 
+### 2025-11-07 09:15 — [Build] [medium]
+**File(s):** `vite.config.ts`
+**Change:** Set `base` path to `/AI-Finance-Tracker/` for GitHub Pages builds
+**Purpose:** Ensure static assets resolve correctly when served from project subdirectory on GitHub Pages
+**Linked Components:** `Vite` build pipeline; GitHub Pages deployment
+**Next Step Context:** Rebuild and redeploy to GitHub Pages to verify site loads
+**Ticket/Ref:** GH-PAGES-BASE
+
+### 2025-11-06 00:05 — [Infra] [medium]
+**File(s):** Git remote `origin`, repository: `Nerli-Ishan-25/AI-Finance-Tracker`
+**Change:** Configured remote to GitHub and pushed `main` (initial publish)
+**Purpose:** Make project available on GitHub for collaboration and CI
+**Linked Components:** Entire project (front-end app, docs, resources)
+**Next Step Context:** Add repo description, enable issues, protect `main`, and set branch rules
+**Ticket/Ref:** GH-PUBLISH
+
 ### 2025-11-06 00:00 — [Infra] [low]
 **File(s):** `.cursorrules`
 **Change:** Added auto-update directive referencing `Project_log.md`
