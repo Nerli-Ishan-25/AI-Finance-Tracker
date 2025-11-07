@@ -41,6 +41,14 @@
 
 ---
 
+### 2025-11-07 09:45 — [Build] [low]
+**File(s):** `vite.config.ts`
+**Change:** Added inline comment documenting previous `base` setting reference
+**Purpose:** Record alternate deployment path used during earlier experiments
+**Linked Components:** `Vite` configuration
+**Next Step Context:** Confirm comment is purely informational; no action required
+**Ticket/Ref:** GH-PAGES-NOTE
+
 ### 2025-11-07 09:15 — [Build] [medium]
 **File(s):** `vite.config.ts`
 **Change:** Set `base` path to `/AI-Finance-Tracker/` for GitHub Pages builds

@@ -9,3 +9,5 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
 });
+
+//base: "/vite-react-gallery/",
