@@ -41,6 +41,14 @@
 
 ---
 
+### 2025-11-07 10:05 — [Build] [low]
+**File(s):** `package.json`
+**Change:** Updated `homepage` to GitHub Pages URL `https://nerli-ishan-25.github.io/AI-Finance-Tracker/`
+**Purpose:** Align deployment metadata with GitHub Pages hosting location
+**Linked Components:** Build metadata; GitHub Pages deployment
+**Next Step Context:** Run `npm run deploy` to publish latest build to `gh-pages`
+**Ticket/Ref:** GH-PAGES-CONFIG
+
 ### 2025-11-07 09:45 — [Build] [low]
 **File(s):** `vite.config.ts`
 **Change:** Added inline comment documenting previous `base` setting reference
